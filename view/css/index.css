@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    font-weight: 650;
+}
+
+.root {
+    padding: 2%;
+    transition: 1s;
+
+}
+
+h1 {
+    margin-bottom: 3vh;
+}
+
+.add_todo {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.add_todo__input {
+    width: 25rem;
+    font-size: 1.2rem;
+    border: 1px solid rgb(189, 189, 189);
+}
+
+.add_todo__input:focus-within {
+    outline: none !important;
+    border: 2.3px solid rgb(100, 100, 100);
+}
+
+.add_todo__button {
+    background-color: rgb(44, 160, 69);
+    padding: 0.7%;
+    border-radius: 0 50% 50% 0;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.todos__todo {
+    height: 0;
+    transition-duration: 1s;
+
+    flex-flow: row nowrap;
+}
+
+.visible {
+    height: 1.5rem;
+}
+
+
+.todo__configs {
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.6s;
+
+}
+
+.todos__todo:hover > .todo__configs {
+    opacity: 1;
+}
+
+.visible input[type="checkbox"] {
+    transform: scale(1.24);
+}
+
+footer {
+    margin: 5vh 0 0 0;
+}
+
+.footer__email {
+
+}
