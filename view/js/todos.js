@@ -1,22 +1,4 @@
-
-document.querySelector('body').addEventListener('keypress', todo.enter_func)
-
 class Todo {
-    constructor() {
-
-        this.enter_func = e => {
-            const input = document.querySelector('.add_todo__input')
-        
-            if (e.key === 'Enter' && input.value.trim() != '' ) {
-                addToDo()
-            }
-        }
-
-        this.todos = document.querySelector('.todos')
-        this.allTodos = document.querySelectorAll('.todos__todo')
-
-
-    }
     
     addToDo() {
     
@@ -25,7 +7,9 @@ class Todo {
         if (input.value.trim() != '') {
             const text = document.querySelector('.add_todo__input')
 
-            this.todos.innerHTML += `
+            const todos = document.querySelector('.todos')
+
+            todos.innerHTML += `
             <div class="todos__todo"><input type="checkbox" onclick="removeToDo(this)">
             <span class="todo__text">${text.value.trim()}</span>
             <span class="todo__configs configs__edit">✏️</span>
@@ -35,7 +19,8 @@ class Todo {
             text.value = ''
     
             // Animation
-            const this_element = this.allTodos[this.allTodos.length-1]
+            const allTodos = document.querySelectorAll('.todos__todo')
+            const this_element = allTodos[allTodos.length-1]
     
             this_element.classList.add('visible')
         }
@@ -67,16 +52,28 @@ class Todo {
             then(text => console.log(text))
             
             setTimeout(() => {
-                this.todos.removeChild(element.parentNode)
+                const todos = document.querySelector('.todos')
+
+                todos.removeChild(element.parentNode)
             }, 1010)
         }
     }
     
     appear_and_disappear_animation() {
-        this.allTodos.forEach(todo => todo.classList.add('visible'))
+        const allTodos = document.querySelectorAll('.todos__todo')
+
+        allTodos.forEach(todo => todo.classList.add('visible'))
     
     }
 
 }
 
 const todo = new Todo()
+
+document.querySelector('body').addEventListener('keypress', e => {
+    const input = document.querySelector('.add_todo__input')
+
+    if (e.key === 'Enter' && input.value.trim() != '' ) {
+        todo.addToDo()
+    }
+})

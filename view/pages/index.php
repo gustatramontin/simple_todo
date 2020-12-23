@@ -9,9 +9,9 @@
 </head>
 
 <body onload="todo.appear_and_disappear_animation()">
-    <div class="root" ">
+    <div class="root">
         <h1>Simple Todo</h1>
-        <div class=" todos">
+        <div class="todos">
         <?php
                 foreach($todos as $todo) {
                     echo "<div class=\"todos__todo\"><input type=\"checkbox\" onclick=\"todo.removeToDo(this)\">
