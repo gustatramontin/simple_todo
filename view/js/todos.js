@@ -30,10 +30,28 @@ class Todo {
     editTodo(element) {
         const text_element = element.parentNode.querySelector('.todo__text')
     
+        element.classList.add('unvisible')
+
         const text = text_element.innerText
     
-        text_element.innerHTML = `<input type="text" value="${text}">`
+        text_element.innerHTML = `<input type="text" value="${text}">
+        <span class="text__check-btn-for-edit" onclick="todo.finishEdit(this)">
+        ✔️</span>`
     }
+    
+    finishEdit(element) {
+        const text_element = element.parentNode
+        
+        const input = text_element.querySelector('input')
+
+        text_element.innerHTML = input.value
+
+        const todo = text_element.parentNode
+
+        const edit_btn = todo.querySelector('.unvisible')
+
+        edit_btn.classList.remove('unvisible')
+    }   
     
     
     addCookie(text) {
